@@ -15,7 +15,19 @@ class Welcome2 extends React.Component {
 
 
 const element = <Welcome1 name="Day4"/>;
-ReactDom.render(element, document.getElementById('root'));
+
+function App() {
+    return (
+        <div>
+            <Welcome1 name="day1"/>
+            <Welcome1 name="day2"/>
+            <Welcome1 name="day3"/>
+            <Welcome1 name="day4"/>
+        </div>
+    );
+}
+
+ReactDom.render(<App/>, document.getElementById('root'));
 
 
 
