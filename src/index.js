@@ -1,18 +1,25 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 
-const element = <h1>Hello Day4</h1>
-
-
-//Updating the Rendered Element
-function tick() {
-    const element = (
-        <div>
-            <h1>Hello Day4</h1>
-            <h2>It is {new Date().toLocaleTimeString()}</h2>
-        </div>
-    );
-    ReactDom.render(element, document.getElementById('root'));
+//Function component
+function Welcome1(props) {
+    return <h1>Hello, {props.name}</h1>;
 }
 
-setInterval(tick, 1000);
+//Class Components
+class Welcome2 extends React.Component {
+    render () {
+        return <h1>Hello {this.props.name} </h1>
+    }
+}
+
+
+const element = <Welcome1 name="Day4"/>;
+ReactDom.render(element, document.getElementById('root'));
+
+
+
+
+
+
+
