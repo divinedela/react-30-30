@@ -27,7 +27,63 @@ function App() {
     );
 }
 
-ReactDom.render(<App/>, document.getElementById('root'));
+function Comment(props) {
+    return (
+        <div className="Comment">
+            <div className="UserInfo">
+                <UserInfo author={props.author} />
+                <div className="Comment-text">
+                    {props.text}
+                </div>
+                <div className="Comment-date">
+                    {formatDate(props.date)}
+                </div>
+            </div>
+        </div>
+    )
+}
+
+
+function Avatar(props) {
+    return (
+        <img className="Avatar" 
+            src={props.author.avatarUrl} 
+            alt={props.author.name} 
+        />
+    );
+}
+
+function UserInfo(props) {
+    return (
+        <div>
+            <Avatar author={props.author}/>
+            <div className="UserInfo-name">
+                {props.author.name}
+            </div>
+        </div>
+    );
+}
+
+function formatDate(date) {
+    return date.toLocaleDateString();
+}
+
+const comment = {
+    date: new Date(),
+    text: 'Hello there',
+    author: {
+        name: 'Divine Dela',
+        avatarUrl: 'https://avatars1.githubusercontent.com/u/34287487?s=460&v=4'
+    }
+};
+
+ReactDom.render(
+    <Comment
+        date={comment.date}
+        author={comment.author}
+        text={comment.text}
+    />, 
+    document.getElementById('root'));
 
 
 
